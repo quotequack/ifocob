@@ -2,7 +2,7 @@
 Name=ifocob
 Exec=ifocob
 Type=Application
-Terminal=true
+Terminal=false
 Categories=Utility;
 MimeType=image/qoi
 MimeType=image/bmp
