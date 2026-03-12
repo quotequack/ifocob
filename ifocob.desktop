@@ -6,3 +6,4 @@ Terminal=false
 Categories=Utility;
 MimeType=image/qoi
 MimeType=image/bmp
+MimeType=image/x-exr

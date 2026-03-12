@@ -12,7 +12,7 @@ pub enum IfError {
     #[error("decode error")]
     DecodeError(#[from] image::ImageError),
     #[error("encode error")]
-    EncodeError(),
+    EncodeError(image::ImageError),
     #[error("unknown file magic: {magic:?}")]
     UnknownMagic { magic: Vec<u8> },
 }

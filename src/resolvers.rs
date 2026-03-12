@@ -8,6 +8,7 @@ pub fn resolve_decode(codec: CodecId, payload: &[u8]) -> Result<image::DynamicIm
         CodecId::Jpeg => decoders::jpeg::decode(payload),
         CodecId::Bmp  => decoders::bmp::decode(payload),
         CodecId::Qoi => decoders::qoi::decode(payload),
+        CodecId::Exr => decoders::exr::decode(payload),
     };
     out
 }
@@ -19,6 +20,7 @@ pub fn resolve_encode(codec: CodecId, payload: &DynamicImage) -> Result<Vec<u8>,
         CodecId::Jpeg => decoders::jpeg::encode(payload),
         CodecId::Bmp  => decoders::bmp::encode(payload),
         CodecId::Qoi => decoders::qoi::encode(payload),
+        CodecId::Exr => decoders::exr::encode(payload),
     };
     out
 }
@@ -29,6 +31,7 @@ pub fn resolve_name(codec: String) -> CodecId {
         "jpeg" | "jpg" => CodecId::Jpeg,
         "bmp" | "bitmap"  => CodecId::Bmp,
         "qoi" => CodecId::Qoi,
+        "exr" | "openexr" => CodecId::Exr,
         other  => panic!("unknown codec: {}", other),
     };
     codec
@@ -44,13 +47,15 @@ pub fn resolve_magic(data: &[u8]) -> Result<CodecId, IfError> {
         _ if matches(data, decoders::jpeg::MAGIC) => Ok(CodecId::Jpeg),
         _ if matches(data, decoders::bmp::MAGIC)  => Ok(CodecId::Bmp),
         _ if matches(data, decoders::qoi::MAGIC)  => Ok(CodecId::Qoi),
+        _ if matches(data, decoders::exr::MAGIC)  => Ok(CodecId::Exr),
         _ => Err(IfError::UnknownMagic { magic: data[..8.min(data.len())].to_vec() }),
     }
 }
 
 pub enum CodecId {
-    Png  = 0x01,
-    Jpeg = 0x02,
-    Bmp  = 0x03,
-    Qoi = 0x04,
+    Png,
+    Jpeg,
+    Bmp,
+    Qoi,
+    Exr,
 }

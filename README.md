@@ -44,6 +44,13 @@ Add ifocob.packages.x86_64-linux.default
  
 To be determined
 
+## Formats supported
+
+* png
+* jpeg
+* bmp
+* qoi
+
 ## Contributing
 
 Instructions for adding codecs in contributing.md
