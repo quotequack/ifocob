@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=ifconvert
+Exec=ifconvert
+Type=Application
+Terminal=true
+Categories=Utility;

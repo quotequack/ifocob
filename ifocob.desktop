@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=ifocob
+Exec=ifocob
+Type=Application
+Terminal=true
+Categories=Utility;
+MimeType=image/qoi
+MimeType=image/bmp
