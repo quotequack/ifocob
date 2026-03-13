@@ -37,7 +37,7 @@ pub fn resolve_name(codec: String) -> CodecId {
         "qoi" => CodecId::Qoi,
         "exr" | "openexr" => CodecId::Exr,
         "tiff" | "tif" => CodecId::Tiff,
-        "webm" => CodecId::Webm,
+        "webm" | "webp" => CodecId::Webm,
         other  => panic!("unknown codec: {}", other),
     };
     codec
