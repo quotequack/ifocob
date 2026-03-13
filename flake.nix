@@ -11,7 +11,7 @@
             src = ./.;
             buildInputs = [];
             nativeBuildInputs = [];
-            cargoHash = "sha256-+j3NgG83Qp/b5G5VzXcCaekwpr0MPL2xIQr484M4ZVs=";
+            cargoHash = "sha256-ZGHRxEarZBTd5+86Ws/DTZukYrCWiNWbAwGhF2YRkkY=";
             postInstall = ''
               mkdir -p $out/share/applications/
               install -Dm644 ifconvert.desktop $out/share/applications/ifconvert.desktop
